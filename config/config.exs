@@ -13,9 +13,24 @@ use Mix.Config
 config :registrar,
   ecto_repos: [Registrar.Repo]
 
+# config :registrar, Registrar.Repo,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "registrar_dev",
+#   hostname: "postgres",
+#   pool: 10
+
 config :registrar_web,
   ecto_repos: [Registrar.Repo],
   generators: [context_app: :registrar]
+
+# config :registrar, Registrar.Repo,
+#   username: "postgres",
+#   password: "postgres",
+#   database: "registrar_devv",
+#   hostname: "postgres",
+#   pool_size: 10
+
 
 # Configures the endpoint
 config :registrar_web, RegistrarWeb.Endpoint,

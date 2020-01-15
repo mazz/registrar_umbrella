@@ -13,6 +13,13 @@ import Config
 config :registrar_web, RegistrarWeb.Endpoint,
   secret_key_base: System.fetch_env!("SECRET_KEY_BASE")
 
+config :registrar, Registrar.Repo,
+  username: "postgres",
+  password: "postgres",
+  database: "registrar_dev",
+  hostname: "postgres",
+  show_sensitive_data_on_connection_error: true,
+  pool_size: 10
 # config :faithful_word_api, FaithfulWordApi.Endpoint,
 #   # url: [host: "api.faithfulword.app"],
 #   check_origin: ["//localhost", "//api.faithfulword.app"],
