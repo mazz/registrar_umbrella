@@ -29,8 +29,27 @@ services:
     volumes:
       - postgres-data:/var/lib/postgresql/data
     environment:
+      POSTGRES_DB: registrar_dev
       POSTGRES_PASSWORD: postgres
       POSTGRES_USER: postgres
+    # volumes:
+    #   - database-storage:/var/lib/postgresql/data
+    networks:
+      - db-network
+
+  registrar_umbrella:
+    build: .
+    image: registrar_umbrella
+    environment:
+      POSTGRES_DB: registrar_dev
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_USER: postgres
+    env_file:
+      - .registrar_umbrella_env
+    depends_on:
+      - postgres
+    networks:
+      - db-network
 
   # postgres_exporter:
   #   image: wrouesnel/postgres_exporter:v0.7.0
@@ -68,6 +87,9 @@ services:
   #     - '--web.console.libraries=/usr/share/prometheus/console_libraries'
   #     - '--web.console.templates=/usr/share/prometheus/consoles'
 
+networks:
+  db-network:
+  
 volumes:
   postgres-data: {}
   # rabbitmq-data: {}

@@ -49,4 +49,5 @@ CMD ["./bin/start"]
 # CMD ["/app/bin/docker-entrypoint.sh"]
 
 # docker build -t mhanna/registrar .
-# docker run -p 4000:4000 -p 5432:5432 --env COOL_TEXT='ELIXIR ROCKS!!!!' --env SECRET_KEY_BASE=PV4tK6d7I3TTaygeCuaFSaZuQgmO6Lz9twMo5GSVDn4TW2+R2/ycQnzBx/20TfBt mhanna/registrar:latest
+# docker run -p 4000:4000 -p 5432:5432 --env COOL_TEXT='ELIXIR ROCKS!!!!' --env DATABASE_URL=ecto://postgres:postgres@postgres/registrar_dev --env SECRET_KEY_BASE=PV4tK6d7I3TTaygeCuaFSaZuQgmO6Lz9twMo5GSVDn4TW2+R2/ycQnzBx/20TfBt mhanna/registrar:latest
+
